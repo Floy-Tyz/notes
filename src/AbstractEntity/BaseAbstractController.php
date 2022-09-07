@@ -2,13 +2,13 @@
 
 namespace App\AbstractEntity;
 
-use App\Serializer\RelationSerializer;
-use App\Serializer\Interfaces\SerializerManagerInterface;
+use App\Response\AppResponseFacade;
+use App\Serializer\AppSerializer;
 use App\Traits\ResponseStatusTrait;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use Symfony\Component\Serializer\Serializer;
+use Symfony\Contracts\Service\Attribute\Required;
 use Symfony\Contracts\Service\ServiceSubscriberInterface;
 
 abstract class BaseAbstractController extends AbstractController implements ServiceSubscriberInterface
@@ -18,8 +18,11 @@ abstract class BaseAbstractController extends AbstractController implements Serv
     /** @var EntityManagerInterface */
     protected EntityManagerInterface $entityManager;
 
-    /** @var RelationSerializer */
-    protected RelationSerializer $serializer;
+    /** @var AppSerializer */
+    protected AppSerializer $serializer;
+
+    /** @var AppResponseFacade */
+    protected AppResponseFacade $response;
 
     /**
      * @return array
@@ -32,20 +35,29 @@ abstract class BaseAbstractController extends AbstractController implements Serv
     }
 
     /**
-     * @required
      * @param EntityManagerInterface $entityManager
      */
+    #[Required]
     public function setEntityManager(EntityManagerInterface $entityManager)
     {
         $this->entityManager = $entityManager;
     }
 
     /**
-     * @required
-     * @param SerializerManagerInterface $serializerManager
+     * @param AppSerializer $serializer
      */
-    public function setSerializer(SerializerManagerInterface $serializerManager)
+    #[Required]
+    public function setSerializer(AppSerializer $serializer)
     {
-        $this->serializer = $serializerManager->getSerializer();
+        $this->serializer = $serializer;
+    }
+
+    /**
+     * @param AppResponseFacade $appResponseFacade
+     */
+    #[Required]
+    public function setResponseFacade(AppResponseFacade $appResponseFacade)
+    {
+        $this->response = $appResponseFacade;
     }
 }
