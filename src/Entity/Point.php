@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\PointRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: PointRepository::class)]
 class Point
@@ -14,12 +15,15 @@ class Point
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
+    #[Groups(['api'])]
     private int $id;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Groups(['api'])]
     private string $name;
 
     #[ORM\Column(type: 'boolean')]
+    #[Groups(['api'])]
     private bool $checked;
 
     #[ORM\ManyToOne(targetEntity: Note::class, inversedBy: 'notes')]

@@ -31,7 +31,7 @@ class Note
     #[Groups(['api'])]
     private string $slug;
 
-    #[ORM\OneToMany(mappedBy: 'category', targetEntity: Point::class)]
+    #[ORM\OneToMany(mappedBy: 'note', targetEntity: Point::class)]
     private Collection $points;
 
     public function __construct()

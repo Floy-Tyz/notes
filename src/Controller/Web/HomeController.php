@@ -13,10 +13,4 @@ class HomeController extends BaseAbstractController
     {
         return $this->render('pages/home.html.twig');
     }
-
-//    #[Route("/categories/{any?}", name: "categories", requirements: ["any" => ".*"], methods: ["GET"])]
-//    public function categories(): Response
-//    {
-//        return $this->render('pages/home.html.twig');
-//    }
 }

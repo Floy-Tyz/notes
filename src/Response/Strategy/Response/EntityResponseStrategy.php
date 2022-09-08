@@ -48,6 +48,6 @@ class EntityResponseStrategy extends AbstractResponseStrategy
      */
     public function support(mixed $data): bool
     {
-        return ($data instanceof EntityArrayCollection) || (is_object($data) && !$this->entityManager->getMetadataFactory()->isTransient(get_class($data)));
+        return ($data instanceof EntityArrayCollection || is_array($data)) || (is_object($data) && !$this->entityManager->getMetadataFactory()->isTransient(get_class($data)));
     }
 }
