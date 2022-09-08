@@ -8,8 +8,14 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends BaseAbstractController
 {
-    #[Route("/{any?}", name: "home", requirements: ["any" => ".*"], methods: ["GET"])]
-    public function home(): Response
+    #[Route("/", name: "notes.list", methods: ["GET"])]
+    public function notesList(): Response
+    {
+        return $this->render('pages/home.html.twig');
+    }
+
+    #[Route("/notes/{slug}/{id}", name: "notes.view", methods: ["GET"])]
+    public function notesView(): Response
     {
         return $this->render('pages/home.html.twig');
     }
