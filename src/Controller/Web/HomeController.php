@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends BaseAbstractController
 {
-    #[Route("/", name: "home", methods: ["GET"])]
+    #[Route("/{any?}", name: "home", requirements: ["any" => ".*"], methods: ["GET"])]
     public function home(): Response
     {
         return $this->render('pages/home.html.twig');
