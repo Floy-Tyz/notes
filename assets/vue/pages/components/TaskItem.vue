@@ -2,10 +2,10 @@
   <div class="flex flex-row start items-center">
     <div class="mr-auto">{{ i.text }}</div>
     <div>
-      <input type="checkbox" id="checkbox" @input="updateMessage"  />
-      <button class="ml-2">
-        X
-      </button>
+<!--      <input type="checkbox" id="checkbox" @input="updateMessage" class="" />-->
+<!--      <button class="ml-2">-->
+<!--        X-->
+<!--      </button>-->
     </div>
 
   </div>

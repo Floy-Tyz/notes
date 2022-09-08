@@ -1,2 +1,8 @@
 import './styles/app.scss';
-import main from "./vue/pages/Main";
+import axios from "axios";
+require('./vue/main');
+
+
+// let note = axios.get('/api/notes')
+//
+// console.log(note)
