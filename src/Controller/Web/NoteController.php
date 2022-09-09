@@ -63,25 +63,42 @@ class NoteController extends BaseAbstractController
             ref: new Model(type: Note::class, groups: ['api']),
         )
     )]
-    #[OA\Parameter(
-        name: 'name',
-        description: 'Название записной карточки',
-        in: 'path',
-        required: true,
-        schema:  new OA\Schema(type: 'string')
-    )]
-    #[OA\Parameter(
-        name: 'points',
-        description: 'test',
-        in: 'path',
-        schema: new OA\Schema(
-            type: 'array',
-            items: new OA\Items(
-                properties: [
-                    new OA\Property(property: 'name', description: 'Название записи', type: 'string')
-                ]
+//    #[OA\Parameter(
+//        name: 'name',
+//        description: 'Название записной карточки',
+//        in: 'path',
+//        required: true,
+//        schema:  new OA\Schema(type: 'string')
+//    )]
+    #[OA\RequestBody(
+        description: 'Список записей',
+        content: [
+//            new OA\MediaType(
+//                mediaType: 'application/string',
+//                schema: new OA\Schema(
+//                    type: 'string',
+//                )
+//            ),
+            new OA\MediaType(
+                mediaType: 'application/json',
+                schema: new OA\Schema(
+                    type: 'array',
+                    items: new OA\Items(
+                        properties: [
+                            new OA\Property(property: 'name', description: 'Название записи', type: 'string')
+                        ],
+                    ),
+                    example: [
+                        [
+                            'name' => 'first point'
+                        ],
+                        [
+                            'name' => 'second point'
+                        ],
+                    ]
+                )
             )
-        )
+        ]
     )]
     public function createNote(CreateUpdateApiNoteRequest $request): Response
     {

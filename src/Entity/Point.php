@@ -63,6 +63,12 @@ class Point
         $this->note = $note;
     }
 
+    #[Groups(['api'])]
+    public function getNoteId(): int
+    {
+        return $this->getNote()->getId();
+    }
+
     /**
      * @return bool
      */
