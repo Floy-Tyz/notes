@@ -13,7 +13,7 @@ const routes =[
         component:Main,
     },
     {
-        path: '/:slug',
+        path: '/notes/:slug/:id',
         name:'Card',
         component: CardToDo,
     },

@@ -11,6 +11,13 @@ export default {
     setTodos(state, payload) {
         state.todos = payload
     },
+    setTasks(state, payload) {
+        console.log('dd', payload)
+        if (state.todos.tasks===undefined){
+            state.todos.find(x => x.id === payload[0].note_id)['tasks'] = payload
+        }
+
+    },
     createTodos(state, payload) {
         if (payload !== null) {
             return state.todos.push(
@@ -24,19 +31,18 @@ export default {
             console.log(payload)
         }
     },
-    createTasks(state, payload, id) {
+    createTasks(state, payload) {
 
-        let todoId = state.todos.find((x) => x.id === id)
-
-        if (id !== undefined && payload.id !== undefined && typeof payload.title === 'string') {
-            return state.todos.find((x) => x.id === id).tasks.push(
-                {
-                    id: todoId.tasks[todoId.tasks.length - 1].id + 1,
-                    text: payload.text,
-                    completed: payload.completed
-                }
-            )
+        let todoId = state.todos.find((x) => x.id === payload.todoId)
+        if (!state.todos.find((x) => x.id === payload.todoId)?.task) {
+            console.log('es')
         }
+        // let task={id: todoId.tasks[todoId.tasks.length - 1].id + 1,
+        //     text: payload.text,
+        //     completed: payload.completed}
+        //
+        // return state.todos.find((x) => x.id === payload.todoId).push(task)
+
     },
     deleteTodos(state, id) {
 
