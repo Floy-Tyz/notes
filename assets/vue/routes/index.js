@@ -1,8 +1,9 @@
 
 import {createRouter, createWebHistory}  from 'vue-router'
-import Main from "@/pages/Main";
-import SecondPage from "@/pages/SecondPage";
-import ThirdPage from "@/pages/ThirdPage";
+import Main from "../pages/Main";
+import SecondPage from "../pages/SecondPage";
+import ThirdPage from "../pages/ThirdPage";
+import CardToDo from "../pages/CardToDo/CardToDo";
 
 
 const routes =[
@@ -10,6 +11,11 @@ const routes =[
         path:'/',
         name:'Main',
         component:Main,
+    },
+    {
+        path: '/:slug',
+        name:'Card',
+        component: CardToDo,
     },
     {
         path:'/second',

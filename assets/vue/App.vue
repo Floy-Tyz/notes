@@ -1,15 +1,19 @@
-<template>
-  <Header/>
+<template >
+  <div class="bg-zinc-900 h-screen">
+    <Header/>
 
 
-  <router-view></router-view>
+    <router-view></router-view>
+  </div>
+
+
 </template>
 
 <script>
-import Header from "@/components/Header";
-import Main from "@/pages/Main";
-import SecondPage from "@/pages/SecondPage";
-import ThirdPage from "@/pages/ThirdPage";
+import Header from "./components/Header";
+import Main from "./pages/Main";
+import SecondPage from "./pages/SecondPage";
+import ThirdPage from "./pages/ThirdPage";
 export default {
   name: 'App',
   components: {
