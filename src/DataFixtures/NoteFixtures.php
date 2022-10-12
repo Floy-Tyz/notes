@@ -2,14 +2,10 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Note;
-use App\Service\Note\NoteService;
+use App\Model\Note\Orm\Entity\Note;
 use App\Service\SimplyGenerator\SimplyGenerator;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
-use Psr\Container\ContainerExceptionInterface;
-use Psr\Container\NotFoundExceptionInterface;
-use Symfony\Component\Serializer\Exception\ExceptionInterface;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
 class NoteFixtures extends Fixture

@@ -2,7 +2,7 @@
 
 namespace App\Controller\Web;
 
-use App\AbstractEntity\BaseAbstractController;
+use App\Infrastructure\AbstractClass\BaseAbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 

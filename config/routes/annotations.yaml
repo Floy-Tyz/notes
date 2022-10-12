@@ -1,6 +1,12 @@
-controllers:
-    resource: ../../src/Controller/
+#default_controllers:
+#    resource: ../../src/Controller
+#    type: annotation
+
+ddd_api_controllers:
+    resource: ../../src/Model/**/Controller/**/*
     type: annotation
+    prefix:
+        ru: /api
 
 kernel:
     resource: ../../src/Kernel.php

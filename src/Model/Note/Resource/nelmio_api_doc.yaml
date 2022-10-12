@@ -1,0 +1,37 @@
+nelmio_api_doc:
+
+    models:
+        names:
+            note:
+                alias: note
+                type: App\Model\Note\Orm\Entity\Note
+                groups: ['api']
+
+            point:
+                alias: point
+                type: App\Model\Note\Orm\Entity\Point
+                groups: ['api']
+
+            new-note-request-body:
+                alias: new-note-request-body
+                type: App\Model\Note\Http\Request\CreateApiNoteData
+
+            update-note-request-body:
+                alias: update-note-request-body
+                type: App\Model\Note\Http\Request\UpdateApiNoteData
+
+    documentation:
+        components:
+            schemas:
+
+                new-points:
+                    properties:
+                        name: { type: int },
+                        checked: { type: int },
+
+                update-points:
+                    properties:
+                        id: { type: int },
+                        name: { type: int },
+                        checked: { type: int },
+

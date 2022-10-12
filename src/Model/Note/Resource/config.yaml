@@ -1,0 +1,7 @@
+services:
+    _defaults:
+        autowire: true
+
+    App\Model\Note\Service\Manager\NoteManager: ~
+    App\Model\Note\Service\Manager\NoteManagerInterface: '@App\Model\Note\Service\Manager\NoteManager'
+

@@ -1,0 +1,13 @@
+doctrine:
+    orm:
+        entity_managers:
+            default:
+                mappings:
+                    notes:
+                        type: attribute
+                        dir: '%kernel.project_dir%/src/Model/Note/Orm/Entity'
+                        prefix: 'App\Model\Note\Orm\Entity'
+#                    points:
+#                        type: attribute
+#                        dir: '%kernel.project_dir%/src/Model/Note/Orm/Entity'
+#                        prefix: 'App\Model\Note\Orm\Entity'

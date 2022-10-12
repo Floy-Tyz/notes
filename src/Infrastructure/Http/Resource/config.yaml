@@ -1,0 +1,25 @@
+services:
+    _defaults:
+        autowire: true
+
+    App\Infrastructure\Http\Services\Serializer\ModelSerializerFactory: ~
+
+    App\Infrastructure\Http\Services\Swagger\NelmioExtension: ~
+
+    App\Infrastructure\Http\Services\Serializer\ModelSerializerInterface:
+        factory: '@App\Infrastructure\Http\Services\Serializer\ModelSerializerFactory'
+
+    App\Infrastructure\Http\EventListener\RequestTransformerListener:
+        tags:
+            - { name: "kernel.event_listener", event: "kernel.request", method: "onKernelRequest", priority: "100" }
+
+    App\Infrastructure\Http\EventListener\ExceptionListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception }
+
+    nelmio_api_doc.describers.components:
+        class: Nelmio\ApiDocBundle\Describer\ExternalDocDescriber
+        tags:
+            - { name: nelmio_api_doc.describer, priority: 10 }
+        arguments:
+            $externalDoc: '@App\Infrastructure\Http\Services\Swagger\NelmioExtension'

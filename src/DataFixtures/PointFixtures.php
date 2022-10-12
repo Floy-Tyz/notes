@@ -2,13 +2,12 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Point;
-use App\Entity\Note;
+use App\Model\Note\Orm\Entity\Note;
+use App\Model\Note\Orm\Entity\Point;
 use App\Service\SimplyGenerator\SimplyGenerator;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
-use Symfony\Component\String\Slugger\SluggerInterface;
 
 class PointFixtures extends Fixture implements DependentFixtureInterface
 {
